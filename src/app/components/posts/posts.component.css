@@ -1,0 +1,7 @@
+table tr:hover {
+  background-color: #ccc;
+}
+
+.tabla-resultados {
+  font-size: 13px;
+}

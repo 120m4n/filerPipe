@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Busqueda Barrios</h1>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input type="text" class="form-control" name="filterPost" placeholder="Search ..." [(ngModel)]="filterPost">
+      </div>
+    </div>
+  </div>
+  <div class="row position-absolute bg-light  " *ngIf="(barrios | filter:filterPost).length > 0">
+    <div class="col">
+      <table class="table table-striped tabla-resultados">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let barrio of barrios | filter:filterPost" (click)="seleccionarFila(barrio)">
+            <td>{{barrio.ogc_fid}}</td>
+            <td>{{barrio.nombre}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-md-12 col-12">
+      <iframe #iframeCartografia src="http://localhost:5173/" frameborder="0" style="width:100%;height:400px;"></iframe>
+    </div>
+    <!-- <div class="col-md-6 col-12">
+      <iframe #iframeVistaLateral src="" frameborder="0" style="width:100%;height:400px;"></iframe>
+    </div> -->
+  </div>
+</div>
